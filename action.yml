@@ -1,6 +1,6 @@
 # action.yml
-name: 'Compile LateX'
-description: 'Compile Latex/XeLatex files easily !'
+name: 'LaTeX Releases'
+description: 'Compile Latex/XeLatex files to GitHub releases'
 branding:
   icon: file-text
   color: blue
@@ -8,13 +8,8 @@ inputs:
   tex_path:  # id of input
     description: 'Path of Tex File'
     required: true
-  push:
-    description: 'String stating whether to push output PDF, PDF will only be pushed in case of "yes"'
-    default: 'no'
-    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.tex_path }}
-    - ${{ inputs.push }}
